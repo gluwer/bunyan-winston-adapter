@@ -19,6 +19,18 @@ restify.createServer({
 });
 ```
 
+It is also possible to provide your own mapping from bunyan to winston. This will override default mapping. You can provide only the types you want to override:
+
+```
+var mapping = {
+  trace: 'silly'
+};
+
+restify.createServer({
+  log: bunyanToWinstonAdapter.createAdapter(winston, mapping),
+});
+```
+
 ## Why not add a logger to bunyan that pushes to winston?
 
 I do not want to have some things passed from one logger to another which will be slower and amount of code in both

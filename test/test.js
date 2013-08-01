@@ -17,3 +17,8 @@ adapter.warn('Hello %s', 'winston');
 adapter.debug({foo: 'bar'}, 'hi');
 adapter.trace(new Error('Hello error'));
 adapter.trace(new Error('Hello error'), 'more on this: %s', 'very nasty');
+
+var adapter2 = bwadapter.createAdapter(winston, {trace: 'silly'});
+adapter2.trace(new Error('This is not logged!'));
+winston.level = 'silly';
+adapter2.trace(new Error('But this will now be!'));

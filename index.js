@@ -41,10 +41,17 @@ var Bunyan2WinstonAdapter = {
     return this;
   },
 
-  createAdapter: function(winston) {
+  createAdapter: function(winston, mapping) {
     var obj = Object.create(this, {
       _winston: {value: winston}
     });
+
+    if (typeof mapping === 'object') {
+      for (var key in mapping) {
+        obj[key] = _log(mapping[key]);
+      }
+    }
+
     return obj;
   }
 

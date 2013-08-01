@@ -1,6 +1,6 @@
 {
   "name": "bunyan-winston-adapter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Allows to use winston logger in restify server without really using bunyan.",
   "main": "index.js",
   "scripts": {
